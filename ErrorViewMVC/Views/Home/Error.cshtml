@@ -1,0 +1,24 @@
+@model Error
+@{
+    Layout = null;
+}
+
+<div class="card m-2">
+    <div class="card-header" id="@string.Format("heading{0}",Model.Id)">
+        <button class="btn btn-link inline col-1" type="button" data-toggle="collapse" data-target="@string.Format("#collapse{0}",Model.Id)" aria-expanded="false" aria-controls="collapse@{@Model.Id}">
+          <i class="fas fa-chevron-circle-down"></i>
+        </button>
+        <p class="inline col-1 small">@Model.Id</p>        
+        <p class="inline col-1 small">@Model.Severite</p>
+        <p class="inline col-3 small"><b>Login:</b>@Model.LoginAd</p>
+        <p class="inline col-3 small"><b>Machine:</b>@Model.Machine</p>
+        <!-- <p class="inline col-2 small"><b>Priorité:</b>@Model.Priorite</p> -->
+        <p class="inline col-2 small">@Model.DateLog</p>
+    </div>
+
+    <div id="@string.Format("collapse{0}",Model.Id)" class="collapse" aria-labelledby="heading{@Model.Id}" data-parent="#errors">
+      <div class="card-body bg-dark">
+        <pre class="text-light" style="font-family:consolas;">@Model.Message</pre>
+      </div>
+    </div>
+</div>

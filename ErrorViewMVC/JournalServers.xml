@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ArrayOfServerConnection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServerConnection>
+    <ServerName>33PAR-SQL14DEV1\MSSQL1DEV</ServerName>
+    <Database>JOURNAL_APPLICATION</Database>
+    <Login>admin_journal_application</Login>
+    <Password>journal_application_admin_01$</Password>
+  </ServerConnection>
+  <ServerConnection>
+    <ServerName>33PAR-SQL14PRD1\MSSQL1PRD</ServerName>
+    <Database>JOURNAL_APPLICATION</Database>
+    <Login>reader_journal_application</Login>
+    <Password>reader_journal_application</Password>
+  </ServerConnection>
+</ArrayOfServerConnection>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<string>
+@{
+    ViewData["Title"] = "Broadcast Error Viewer";
+}
+
+<div class="bg-dark p-1">
+        <form class="m-0 p-0"
+            asp-action="GetErrors"
+            asp-controller="Home"
+            asp-method="POST"
+            data-ajax="true" 
+            data-ajax-method="GET"
+            data-ajax-update="#ErrorList"
+            data-ajax-mode="Replace">
+            <div class="container">
+                <div class="row p-0">
+                    <div class="col-auto">
+                        <i class="fas fa-bomb fa-2x col col-auto text-danger p-0"></i>
+                    </div>
+                    <div class="col-auto">
+                        @Html.DropDownList("server", new SelectList(@Model), new Dictionary<string, object>() { {"class", "form-control" }, {"placeholder", "DB Server Name" }})
+                    </div>
+                    <div class="col-auto">
+                        @Html.TextBox("loginHint", System.Security.Principal.WindowsIdentity.GetCurrent().Name, new Dictionary<string, object>() { {"class", "form-control" }, {"placeholder", "Login" } })
+                    </div>
+                    <div class="col-auto">
+                        @Html.TextBox("itemsCount", 10, new Dictionary<string, object>() { {"class", "form-control" }, {"placeholder", "Count" } })
+                    </div>
+                    <div class="col-auto">
+                        <input type="submit" value="Go" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="ErrorList">
+
+</div>
+
+@section scripts{ 
+    <script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.min.js" integrity=""></script>
+}

@@ -1,0 +1,15 @@
+@model IEnumerable<Error>
+@{
+    Layout = null;
+}
+
+<div class="text-center p-3">
+    <h6>@Model.Count() errors loaded.</h6>
+</div>
+
+<div class="accordion" id="errors">
+    @foreach(Error error in Model)
+    {
+        @Html.Partial("Error", error);
+    }
+</div>
